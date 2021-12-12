@@ -1,0 +1,16 @@
+DO $$
+ DECLARE
+ 	 country_id1		country.country_id%TYPE;
+     country_name1   country.country_name%TYPE;
+     country_region1 country.country_region%TYPE;
+ BEGIN
+     country_id1 := 12;
+     country_name1 := 'Greenland';
+	 country_region1 := 'Greeanland';
+     FOR COUNTER IN 1..3
+         LOOP
+             INSERT INTO country(country_id, country_name, country_region)
+            VALUES (country_id1 || COUNTER, country_name1 || COUNTER, country_name1 || COUNTER);
+         END LOOP;
+ END;
+ $$
